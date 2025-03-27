@@ -8,24 +8,31 @@ export const Vehicles = () => {
 
   const { store, dispatch } = useGlobalReducer()
   return (
-    <div>
-      <h1>Vehicles</h1>
-
+    <div className="container">
+      <h1 className="text-warning">Vehicles</h1>
+      <div className="d-flex gap-3 overflow-auto" style={{ whiteSpace: "nowrap", overflowX: "auto", scrollbarWidth: "thin" }}>
       {store.vehicles.length > 0 ?
         store.vehicles.map((vehicles, i) => {
           return (
-            <div>
+            <div className="card" style={{ width: "12 rem", flex: "0 0 auto" }}>
+                <img src={"https://placehold.co/400x200"}
+                  className="card-img-top" style={{ objectFit: "cover" }} />
+                <div className="card-body">
               <div>name: {vehicles.name}</div>
               <div>model: {vehicles.model}</div>
               <div>passengers: {vehicles.passengers}</div>
-              <Link to={"/solo/" + i}>
-                <button className="btn btn-danger">Click me</button>
+              <Link to={"/spaceship/" + i}>
+                <button className="btn btn-warning">Click me</button>
               </Link>
             </div>
+            </div>
           )
-        })
+        }
+        )
         :
-        "no vehicles"}
+        "no vehicles"
+        }
+    </div>
     </div>
   )
 }

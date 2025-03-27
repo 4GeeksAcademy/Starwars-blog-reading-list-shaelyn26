@@ -53,7 +53,7 @@ export const Home = () => {
       <Vehicles />
       <SoloPerson />
 
-      <Link to={"/single/ + 1"}>
+      <Link to={"/solo/" + 1}>
         <button>see more</button>
       </Link>
     </div>

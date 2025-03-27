@@ -8,23 +8,31 @@ export const Planets = () => {
 
   const { store, dispatch } = useGlobalReducer()
   return (
-    <div>
-      <h1>Planets</h1>
-      {store.planets.length > 0 ?
-        store.planets.map((planets, i) => {
-          return (
-            <div>
-              <div> name: {planets.name}</div>
-              <div> climate: {planets.climate}</div>
-              <div> population: {planets.population}</div>
-              <Link to={"/solo/" + i}>
-                <button className="btn btn-primary">Click me</button>
-              </Link>
-            </div>
-          )
-        })
-        :
-        "no planets"}
-    </div>
-  )
-}
+    <div className="container">
+      <h1 className="text-success">Planets</h1>
+      <div className="d-flex gap-3 overflow-auto" style={{ whiteSpace: "nowrap", overflowX: "auto", scrollbarWidth: "thin" }}>
+        {store.planets.length > 0 ?
+          store.planets.map((planets, i) => {
+            return (
+              <div className="card" style={{ width: "12 rem", flex: "0 0 auto" }}>
+                <img src={"https://placehold.co/400x200"}
+                  className="card-img-top" style={{ objectFit: "cover" }} />
+                <div className="card-body">
+                  <div> name: {planets.name}</div>
+                  <div> climate: {planets.climate}</div>
+                  <div> population: {planets.population}</div>
+                  <Link to={"/pluto/" + i}>
+                    <button className="btn btn-success">Click me</button>
+                  </Link>
+                </div>
+                </div>
+                )
+        }
+      )
+                :
+        "no planets"
+        }
+              </div>
+              </div>
+            )
+          }
