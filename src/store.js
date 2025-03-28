@@ -4,6 +4,7 @@ export const initialStore=()=>{
     people:[],
     planets: [],
     vehicles: [],
+    favorites: [],
   }
 }
 
@@ -31,20 +32,24 @@ export default function storeReducer(store, action = {}) {
   }
  }
  
+ if(action.type == "my-likes"){
+  if(store?.favorites.includes(action.payload)){return store}
+  return{
+    ...store,
+    favorites: [...store.favorites,action.payload]
+  }
+ }
  
- 
- 
- 
-  switch(action.type){
-    case 'add_task':
-
-      const { id,  color } = action.payload
-
-      return {
-        ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
-      };
-    default:
-      throw Error('Unknown action.');
-  }    
+ if(action.type == "dislike"){
+  return{
+    ...store,
+    favorites: store.favorites.filter((item)=> item != action.payload)
+  }
+ }
 }
+ 
+ 
+ 
+ 
+ 
+  
