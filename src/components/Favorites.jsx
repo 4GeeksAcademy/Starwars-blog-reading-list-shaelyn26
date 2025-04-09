@@ -12,7 +12,7 @@ export const Favorites = () => {
   return (
     <div className="dropdown d-flex mx-auto ">
       <button 
-        className="btn btn-secondary dropdown-toggle"
+        className="btn btn-success dropdown-toggle"
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"
