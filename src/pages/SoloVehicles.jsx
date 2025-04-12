@@ -26,19 +26,25 @@ export const SoloVehicles = () => {
       }, []);
 
   return (
-    <div className="container">
-      <h1>{vehicle?.name} Vehicle</h1>{" "}
+    <div className="container card">
+      
+      <h1 className="title p-3">{vehicle?.name} Vehicle</h1>{" "}
+      
       <h3 className="details">Vehicle History:</h3>
+      
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
         Sint facere odio maiores facilis ex ab molestiae laudantium eveniet nesciunt, 
         qui earum ratione fugiat illo dolorem! Velit, voluptates harum! Tempora, perspiciatis.</p>
-        <h4>Details:</h4>
+        
+        <h4 className="section p-1">Details:</h4>
+      
       <ul>
         <li>this vehicle has...</li>
         <li>this vehicle has...</li>
         <li>this vehicle has...</li>
         <li>this vehicle has...</li>
       </ul>
+    
     </div>
   );
 };

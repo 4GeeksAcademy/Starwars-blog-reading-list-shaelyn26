@@ -41,14 +41,7 @@ export const Home = () => {
     <div className="text-center mt-5">
       <People />
       <Planets />
-      <Vehicles />
-      <SoloPerson />
-      <Link to={"/solo/" + 1}>
-        {" "}
-        <button>see more</button>{" "}
-      </Link>
-
-      
+      <Vehicles />  
     </div>
   );
 };

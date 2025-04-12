@@ -23,18 +23,15 @@ export const SoloPlanet = () => {
       if(store.planets.length === 0) getPlanets();
       }, []);
 
-  return <div className="container">
-    <h1>{planet?.name} Planet Information</h1>
+  return <div className="container card">
+    <h1 className="title p-3">{planet?.name} Planet Information</h1>
+    
     <h3 className="details">Planet History:</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      Cum consequuntur ea error architecto cupiditate ipsum mollitia vero assumenda nihil doloribus, 
-      eveniet voluptate rerum exercitationem eligendi vel perferendis, quo nemo. Minima?</p>
-      <h4>Details:</h4>
-      <ul>
-        <li>this planet has...</li>
-        <li>this planet has...</li>
-        <li>this planet has...</li>
-        <li>this planet has...</li>
-      </ul>
+    
+    <p>{planet?.name} has been featured in {planet.films.length} in the Star Wars Sequels.
+      {planet?.name} climate is {planet.climate} and has a diameter of {planet.diameter}. 
+    The orbital period of {planet?.name} is {planet.orbital_period} with a population of {planet.population}.</p>
+     
+    
     </div>;
 };

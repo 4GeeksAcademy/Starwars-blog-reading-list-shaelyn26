@@ -23,19 +23,12 @@ export const SoloPerson = () => {
     if(store.people.length === 0) getPeople();
     }, []);
     
-  return <div className="container">
-    <h1>{people?.name} Background Information</h1>
+  return <div className="container card">
+    <h1 className="title p-3">{people?.name} Background Information</h1>
+    
     <h3 className="details">History:</h3>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-      Iure sint cum error aut fugiat et alias ut tempora debitis? 
-      Praesentium quaerat nobis eius commodi aperiam perspiciatis sint qui maiores minima?</p>
-      <h4>Characteristics:</h4>
-      <ul>
-        <li>this person has... </li>
-        <li>this person has...</li>
-        <li>this person has...</li>
-      </ul>
-      <h4>Allies:</h4>
-      <p>{people?.name} is good friends with ....</p>.    {/* <--- may not work bc have to make the 'friends name' shuffle too---> */}
+    
+    <p> {people.name} is {people?.gender} and her birth year is {people?.birth_year}. 
+      {people.name} has been seen in {people.films.length} Star Wars Films. Her height would be {people?.height} and her mass is {people?.mass}.</p>
      </div>;
 };
