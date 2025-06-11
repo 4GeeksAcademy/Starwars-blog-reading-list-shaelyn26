@@ -1,4 +1,3 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -13,9 +12,8 @@ export const People = () => {
         style={{
           whiteSpace: "nowrap",
           overflowX: "auto",
-          scrollbarWidth: "thin",
-        }}
-      >
+          scrollbarWidth: "thin",}}>
+
         {store.people.length > 0
           ? store.people.map((person, i) => {
               return (
@@ -36,7 +34,7 @@ export const People = () => {
                     <div> eye-color: {person.eye_color} </div>
                     <div> mass: {person.mass} </div>
 
-                    <Link to={"/solo/" + i}>
+                    <Link to={"/solo/" + person.uid}>
                       <button className="btn btn-danger">Click me</button>
                     </Link>
                     <button

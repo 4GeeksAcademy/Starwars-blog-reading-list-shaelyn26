@@ -10,19 +10,19 @@ export const Home = () => {
   const { store, dispatch } = useGlobalReducer();
 
   const getPeople = () => {
-    fetch("https://swapi.dev/api/people")
+    fetch("https://swapi.tech/api/people")
       .then((resp) => resp.json())
       .then((data) => dispatch({ type: "set-people", payload: data.results }));
   };
 
   const getPlanets = () => {
-    fetch("https://swapi.dev/api/planets")
+    fetch("https://swapi.tech/api/planets")
       .then((resp) => resp.json())
       .then((data) => dispatch({ type: "set-planets", payload: data.results }));
   };
 
   const getVehicles = () => {
-    fetch("https://swapi.dev/api/vehicles")
+    fetch("https://swapi.tech/api/vehicles")
       .then((resp) => resp.json())
       .then((data) =>
         dispatch({ type: "set-vehicles", payload: data.results })

@@ -19,12 +19,13 @@ export const Favorites = () => {
       > 
         Favorites {store?.favorites.length} 
       </button> 
-     
-      <ul className="dropdown-menu">
+      
+      <ul className="dropdown-menu dropdown-menu-end">
         {store.favorites.map((item) => {
           return (
             <li key={item}>
-              <a onClick={(e)=> dispatch({type: "dislike", payload: item})} className="dropdown-item" href="#">
+              <a onClick={(e)=> dispatch({type: "dislike", payload: item})} 
+              className="dropdown-item" href="#">
                 {item}
               </a>
             </li>

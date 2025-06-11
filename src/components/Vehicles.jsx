@@ -1,4 +1,3 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -35,7 +34,7 @@ export const Vehicles = () => {
                     <div>length: {vehicles.length}</div>
                     <div>crew: {vehicles.crew}</div>
                     
-                    <Link to={"/spaceship/" + i}>
+                    <Link to={"/spaceship/" + vehicles.uid}>
                       <button className="btn btn-warning">Click me</button>
                     </Link>
                     <button

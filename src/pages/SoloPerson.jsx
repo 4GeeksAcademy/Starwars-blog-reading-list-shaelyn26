@@ -3,32 +3,32 @@ import { Planets } from "../components/Planets.jsx";
 import { Vehicles } from "../components/Vehicles.jsx";
 import { useParams } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const SoloPerson = () => {
   const { test } = useParams();
   const { store, dispatch } = useGlobalReducer();
+  const [person, setPerson] = useState({});
   console.log("this is my test", test);
 
-  const getPeople = () => {
-    fetch("https://swapi.dev/api/people")
+  const getPerson = () => {
+    fetch("https://swapi.tech/api/people/" + test)
       .then((resp) => resp.json())
-      .then((data) => dispatch({ type: "set-people", payload: data.results }));
+      .then((data) => setPerson(data.result.properties));
   };
 
-  const people = store.people[test];
-  console.log("my person is avaiable ", people);
+  console.log("my person is available", person);
 
   useEffect(() => {
-    if(store.people.length === 0) getPeople();
+    getPerson()
     }, []);
     
   return <div className="container card">
-    <h1 className="title p-3">{people?.name} Background Information</h1>
+    <h1 className="title p-3">{person?.name} Background Information</h1>
     
     <h3 className="details">History:</h3>
     
-    <p> {people.name} is {people?.gender} and her birth year is {people?.birth_year}. 
-      {people.name} has been seen in {people.films.length} Star Wars Films. Her height would be {people?.height} and her mass is {people?.mass}.</p>
+    <p> {person.name} is {person?.gender} and her birth year is {person?.birth_year}. 
+      {person.name} has been seen in {person.films} Star Wars Films. Her height would be {person?.height} and her mass is {person?.mass}.</p>
      </div>;
 };

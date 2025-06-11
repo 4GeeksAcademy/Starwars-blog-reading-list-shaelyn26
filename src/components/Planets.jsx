@@ -1,10 +1,10 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const Planets = () => {
   const { store, dispatch } = useGlobalReducer();
+  
   return (
     <div className="container">
       <h1 className="text-success">Planets</h1>
@@ -36,7 +36,7 @@ export const Planets = () => {
                     <div> terrain: {planets.terrain}</div>
                     <div> gravity: {planets.gravity}</div>
                     
-                    <Link to={"/pluto/" + i}>
+                    <Link to={"/pluto/" + planets.uid}>
                       <button className="btn btn-success">Click me</button>
                     </Link>
                     <button

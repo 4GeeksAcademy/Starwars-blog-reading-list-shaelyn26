@@ -3,26 +3,22 @@ import { Planets } from "../components/Planets.jsx";
 import { Vehicles } from "../components/Vehicles.jsx";
 import { useParams } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const SoloVehicles = () => {
   const { test } = useParams();
   const { store, dispatch } = useGlobalReducer();
+  const [vehicle, setVehicle] = useState({});
   console.log("this is my test", test);
 
-  const getVehicles = () => {
-    fetch("https://swapi.dev/api/vehicles")
+  const getVehicle = () => {
+    fetch("https://swapi.tech/api/vehicles/" + test)
       .then((resp) => resp.json())
-      .then((data) =>
-        dispatch({ type: "set-vehicles", payload: data.results })
-      );
+      .then((data) => setVehicle(data.result.properties));
   };
 
-  const vehicle = store.vehicles[test];
-  console.log("my vehicle is avaiable ", vehicle);
-
   useEffect(() => {
-      if(store.vehicles.length === 0) getVehicles();
+      getVehicle()
       }, []);
 
   return (
