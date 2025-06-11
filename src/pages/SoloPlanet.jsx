@@ -1,7 +1,7 @@
 import { People } from "../components/People.jsx";
 import { Planets } from "../components/Planets.jsx";
 import { Vehicles } from "../components/Vehicles.jsx";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { useEffect, useState } from "react";
 
@@ -20,18 +20,21 @@ export const SoloPlanet = () => {
   console.log("my planet is avaiable ", planet);
 
   useEffect(() => {
-      getPlanet()
-      }, []);
+    getPlanet();
+  }, []);
 
-  return <div className="container card">
-    <h1 className="title p-3">{planet?.name} Planet Information</h1>
-    
-    <h3 className="details">Planet History:</h3>
-    
-    <p>{planet?.name} has been featured in {planet.films} in the Star Wars Sequels.
-      {planet?.name} climate is {planet.climate} and has a diameter of {planet.diameter}. 
-    The orbital period of {planet?.name} is {planet.orbital_period} with a population of {planet.population}.</p>
-     
-    
-    </div>;
+  return (
+    <div className="container card">
+      <h1 className="title p-3">{planet?.name} Planet Information</h1>
+
+      <h3 className="details">Planet History:</h3>
+
+      <p>
+        {planet?.name} has been featured in {planet.films} the Star Wars
+        Sequels. The {planet?.name} climate is {planet.climate} and has a
+        diameter of {planet.diameter}. The orbital period of {planet?.name} is{" "}
+        {planet.orbital_period} with a population of {planet.population}.
+      </p>
+    </div>
+  );
 };

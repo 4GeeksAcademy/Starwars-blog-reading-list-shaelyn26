@@ -20,15 +20,22 @@ export const SoloPerson = () => {
   console.log("my person is available", person);
 
   useEffect(() => {
-    getPerson()
-    }, []);
-    
-  return <div className="container card">
-    <h1 className="title p-3">{person?.name} Background Information</h1>
-    
-    <h3 className="details">History:</h3>
-    
-    <p> {person.name} is {person?.gender} and her birth year is {person?.birth_year}. 
-      {person.name} has been seen in {person.films} Star Wars Films. Her height would be {person?.height} and her mass is {person?.mass}.</p>
-     </div>;
+    getPerson();
+  }, []);
+
+  return (
+    <div className="container card">
+      <h1 className="title p-3">{person?.name} Background Information</h1>
+
+      <h3 className="details">History:</h3>
+
+      <p>
+        {" "}
+        {person.name} is {person?.gender} and their birth year is{" "}
+        {person?.birth_year}.{person.name} has been seen in {person.films} Star
+        Wars Films. Their height would be {person?.height} and their mass is{" "}
+        {person?.mass}.
+      </p>
+    </div>
+  );
 };

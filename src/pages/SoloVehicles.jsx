@@ -18,29 +18,20 @@ export const SoloVehicles = () => {
   };
 
   useEffect(() => {
-      getVehicle()
-      }, []);
+    getVehicle();
+  }, []);
 
   return (
     <div className="container card">
-      
-      <h1 className="title p-3">{vehicle?.name} Vehicle</h1>{" "}
-      
+      <h1 className="title p-3">{vehicle?.name} Background Information</h1>{" "}
       <h3 className="details">Vehicle History:</h3>
-      
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Sint facere odio maiores facilis ex ab molestiae laudantium eveniet nesciunt, 
-        qui earum ratione fugiat illo dolorem! Velit, voluptates harum! Tempora, perspiciatis.</p>
-        
-        <h4 className="section p-1">Details:</h4>
-      
-      <ul>
-        <li>this vehicle has...</li>
-        <li>this vehicle has...</li>
-        <li>this vehicle has...</li>
-        <li>this vehicle has...</li>
-      </ul>
-    
+      <p>
+        Along with many of the Planets featured in the Star Wars Sequeal, the
+        vehicles also play a huge dynamic role in the films. The {vehicle?.name}{" "}
+        has a cargo capacity of {vehicle.cargo_capacity} and only requires{" "}
+        {vehicle.passengers} person per vehicle. The length of the vehicle is{" "}
+        {vehicle.length} with a speed of {vehicle.max_atmosphering_speed}.
+      </p>
     </div>
   );
 };
